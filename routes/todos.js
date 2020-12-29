@@ -1,9 +1,19 @@
-const { Router, response } = require('express')
+const { Router} = require('express')
 const router = Router()
 
 
-router.get('/', (req, response) => {
-    response.render('index')
+router.get('/', (req, res) => {
+    res.render('index', {
+      title: 'Todoos list',
+      isIndex: true 
+    })
+})
+
+router.get('/create', (req, res) => {
+    res.render('create', {
+        title: 'Create todo',
+        isCreate: true
+    })
 })
 
 module.exports = router
